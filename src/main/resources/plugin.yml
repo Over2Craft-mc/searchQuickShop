@@ -1,0 +1,5 @@
+name: SearchQuickShop
+version: ${project.version}
+main: fr.quentin.searchquickshop.SearchQuickShop
+api-version: 1.16
+depend: [QuickShop]

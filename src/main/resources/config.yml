@@ -1,0 +1,38 @@
+# Categories that will be displayed in the categories menu
+categories:
+  "&2Name of the category":
+    # Material that will be displayed for this category in the menu
+    material_icon: bedrock
+    # Lore that will be displayed for this category in the menu
+    lore:
+      - "&6Catégorie spécial bedrock !"
+      - "&2Cette ligne est d'une autre couleur"
+    # Row of the category in the categories menu
+    # between 0 and 5
+    position_row: 0
+    # Column of the category in the categories menu
+    # between 0 and 8
+    position_column: 0
+    # Item that will be displayed when this category is clicked
+    items:
+      - bedrock
+
+
+# Placeholders
+# Any PlaceholderAPI placeholder
+# %remainingStock%
+# %price%
+# %seller%
+# %remainingStock%
+lore_sell:
+  - "Quantité : %remainingStock%"
+  - "Prix : %price%"
+  - "Vendeur : %seller%"
+
+lore_buy:
+  - "Quantité : %remainingStock%"
+  - "Prix : %price%"
+  - "Vendeur : %seller%"
+
+messages:
+  player_does_not_exists: "Ce joueur n'existe pas"

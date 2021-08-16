@@ -1,0 +1,61 @@
+package fr.quentin.searchquickshop.Commands;
+
+import co.aikar.commands.BaseCommand;
+import co.aikar.commands.annotation.*;
+import fr.quentin.searchquickshop.Menu.SmartInv;
+import fr.quentin.searchquickshop.SearchQuickShop;
+import fr.quentin.searchquickshop.Shop.ShopFilters;
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
+
+@CommandAlias("shop-search")
+public class ShopCommands extends BaseCommand {
+
+    @Default
+    @Description("Voir tout les shops")
+    @Syntax("/shop-search")
+    @CommandPermission("searchquickshop.command.default")
+    public static void listAll(Player player) {
+        SmartInv.getItemInventory(ShopFilters.allItems()).open(player);
+    }
+
+    @Subcommand("joueur")
+    @CommandCompletion("@offlineplayers")
+    @Syntax("/shop-search joueur <nom du joueur>")
+    @Description("Voir les shop d'un joueur")
+    @CommandPermission("searchquickshop.command.player")
+    public static void searchItemsForAPlayer(Player player, String[] args) {
+
+        OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(args[0]);
+
+        if (args.length == 1 && offlinePlayer.hasPlayedBefore()) {
+            SmartInv.getItemInventory(ShopFilters.allItems().filterByPlayer(offlinePlayer.getUniqueId())).open(player);
+            return;
+        }
+
+        player.sendMessage(SearchQuickShop.getPluginConfig().MESSAGE_PLAYER_NOT_EXITS);
+    }
+
+    @Subcommand("item")
+    @CommandCompletion("@items")
+    @Syntax("/shop-search item <nom de l'item>")
+    @Description("Voir les shops pour un type d'item")
+    @CommandPermission("searchquickshop.command.item")
+    public static void searchItem(Player player, String[] args) {
+
+        if (args.length == 1) {
+            SmartInv.getItemInventory(ShopFilters.allItems().filterLikeItem(args[0])).open(player);
+            return;
+        }
+        listAll(player);
+    }
+
+    @Subcommand("reload")
+    @Syntax("/shop-search reload")
+    @CommandPermission("searchquickshop.command.reload")
+    public static void searchItem(Player player) {
+        SearchQuickShop.getPluginConfig().reload(SearchQuickShop.plugin);
+        player.sendMessage("Plugin reloaded");
+    }
+}
