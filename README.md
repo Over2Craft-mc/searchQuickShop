@@ -1,3 +1,6 @@
+![build](https://github.com/Over2Craft-mc/searchQuickShop/blob/main/.github/workflows/pre-release.yml/badge.svg)
+
+
 # searchQuickShop
 
 An addon for [QuickShop](https://www.spigotmc.org/resources/quickshop-reremake-1-17-ready-multi-currency.62575/)
