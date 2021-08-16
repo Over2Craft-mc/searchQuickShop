@@ -1,4 +1,6 @@
 ![build](https://github.com/Over2Craft-mc/searchQuickShop/blob/main/.github/workflows/pre-release.yml/badge.svg)
+![build](https://github.com/Over2Craft-mc/searchQuickShop/actions/workflows/pre-release.yml/badge.svg)
+
 
 
 # searchQuickShop
