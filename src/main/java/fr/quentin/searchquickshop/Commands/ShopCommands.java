@@ -2,7 +2,7 @@ package fr.quentin.searchquickshop.Commands;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
-import fr.quentin.searchquickshop.Menu.SmartInv;
+import fr.quentin.searchquickshop.Menu.InventoriesBuilder;
 import fr.quentin.searchquickshop.SearchQuickShop;
 import fr.quentin.searchquickshop.Shop.ShopFilters;
 import org.bukkit.Bukkit;
@@ -17,7 +17,7 @@ public class ShopCommands extends BaseCommand {
     @Syntax("/shop-search")
     @CommandPermission("searchquickshop.command.default")
     public static void listAll(Player player) {
-        SmartInv.getItemInventory(ShopFilters.allItems()).open(player);
+        InventoriesBuilder.getItemInventory(ShopFilters.allItems()).open(player);
     }
 
     @Subcommand("joueur")
@@ -39,7 +39,7 @@ public class ShopCommands extends BaseCommand {
             return;
         }
 
-        SmartInv.getItemInventory(ShopFilters.allItems().filterByPlayer(offlinePlayer.getUniqueId())).open(player);
+        InventoriesBuilder.getItemInventory(ShopFilters.allItems().filterByPlayer(offlinePlayer.getUniqueId())).open(player);
     }
 
     @Subcommand("item")
@@ -50,7 +50,7 @@ public class ShopCommands extends BaseCommand {
     public static void searchItem(Player player, String[] args) {
 
         if (args.length == 1) {
-            SmartInv.getItemInventory(ShopFilters.allItems().filterLikeItem(args[0])).open(player);
+            InventoriesBuilder.getItemInventory(ShopFilters.allItems().filterLikeItem(args[0])).open(player);
             return;
         }
         listAll(player);
