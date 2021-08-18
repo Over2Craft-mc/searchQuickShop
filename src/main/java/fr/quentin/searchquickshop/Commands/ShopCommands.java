@@ -27,14 +27,19 @@ public class ShopCommands extends BaseCommand {
     @CommandPermission("searchquickshop.command.player")
     public static void searchItemsForAPlayer(Player player, String[] args) {
 
-        OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(args[0]);
-
-        if (args.length == 1 && offlinePlayer.hasPlayedBefore()) {
-            SmartInv.getItemInventory(ShopFilters.allItems().filterByPlayer(offlinePlayer.getUniqueId())).open(player);
+        if (args.length != 1) {
+            player.sendMessage(SearchQuickShop.getPluginConfig().MESSAGE_PLAYER_NOT_EXITS);
             return;
         }
 
-        player.sendMessage(SearchQuickShop.getPluginConfig().MESSAGE_PLAYER_NOT_EXITS);
+        OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(args[0]);
+
+        if (offlinePlayer.hasPlayedBefore()) {
+            player.sendMessage(SearchQuickShop.getPluginConfig().MESSAGE_PLAYER_NOT_EXITS);
+            return;
+        }
+
+        SmartInv.getItemInventory(ShopFilters.allItems().filterByPlayer(offlinePlayer.getUniqueId())).open(player);
     }
 
     @Subcommand("item")
