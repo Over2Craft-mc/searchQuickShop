@@ -11,6 +11,7 @@ import fr.quentin.searchquickshop.Menu.AbstractPreviousInventory;
 import fr.quentin.searchquickshop.Menu.InventoriesBuilder;
 import fr.quentin.searchquickshop.Menu.InventoryBuilderProviderInterface;
 import fr.quentin.searchquickshop.Menu.utils.ItemStackUtils;
+import fr.quentin.searchquickshop.Menu.utils.LocationUtils;
 import fr.quentin.searchquickshop.SearchQuickShop;
 import fr.quentin.searchquickshop.Shop.ShopFilters;
 import org.bukkit.Bukkit;
@@ -23,19 +24,19 @@ import org.maxgamer.quickshop.shop.Shop;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopsInventoryAbstract extends AbstractPreviousInventory implements InventoryProvider, InventoryBuilderProviderInterface {
+public class ShopsInventory extends AbstractPreviousInventory implements InventoryProvider, InventoryBuilderProviderInterface {
 
     private final ShopFilters filters;
 
     private final Config config;
 
-    public ShopsInventoryAbstract(ShopFilters filters) {
+    public ShopsInventory(ShopFilters filters) {
         super(null);
         this.filters = filters;
         this.config = SearchQuickShop.getPluginConfig();
     }
 
-    public ShopsInventoryAbstract(ShopFilters filters, InventoryProvider previousInventory) {
+    public ShopsInventory(ShopFilters filters, InventoryProvider previousInventory) {
         super(previousInventory);
         this.filters = filters;
         this.config = SearchQuickShop.getPluginConfig();
@@ -55,7 +56,7 @@ public class ShopsInventoryAbstract extends AbstractPreviousInventory implements
             im.setLore(lore);
             item.setItemMeta(im);
 
-            items[i] =  ClickableItem.of(item, e -> e.getWhoClicked().teleport(shop.getLocation()));
+            items[i] =  ClickableItem.of(item, e -> LocationUtils.teleportToShop((Player) e.getWhoClicked(), shop.getLocation()));
 
             i++;
         }

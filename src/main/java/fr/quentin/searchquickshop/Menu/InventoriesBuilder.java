@@ -4,13 +4,13 @@ import fr.minuskube.inv.SmartInventory;
 import fr.minuskube.inv.content.InventoryProvider;
 import fr.quentin.searchquickshop.Configuration.Config;
 import fr.quentin.searchquickshop.Menu.Inventories.CategoriesInventoryAbstract;
-import fr.quentin.searchquickshop.Menu.Inventories.ShopsInventoryAbstract;
+import fr.quentin.searchquickshop.Menu.Inventories.ShopsInventory;
 import fr.quentin.searchquickshop.Shop.ShopFilters;
 
 public class InventoriesBuilder {
 
     public static SmartInventory getItemInventory(ShopFilters shopFilters, InventoryProvider previousInventory) {
-        InventoryBuilderProviderInterface inventoryProvider = new ShopsInventoryAbstract(shopFilters, previousInventory);
+        InventoryBuilderProviderInterface inventoryProvider = new ShopsInventory(shopFilters, previousInventory);
         return inventoryProvider.getBuilder((InventoryProvider) inventoryProvider);
     }
 
