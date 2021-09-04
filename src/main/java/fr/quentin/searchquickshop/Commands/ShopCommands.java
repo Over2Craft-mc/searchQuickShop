@@ -17,7 +17,7 @@ public class ShopCommands extends BaseCommand {
     @Syntax("/shop-search")
     @CommandPermission("searchquickshop.command.default")
     public static void listAll(Player player) {
-        InventoriesBuilder.getItemInventory(ShopFilters.allItems()).open(player);
+        //InventoriesBuilder.getItemInventory(ShopFilters.allItems()).open(player);
     }
 
     @Subcommand("joueur")
