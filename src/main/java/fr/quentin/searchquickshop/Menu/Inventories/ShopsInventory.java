@@ -11,7 +11,6 @@ import fr.quentin.searchquickshop.Menu.AbstractPreviousInventory;
 import fr.quentin.searchquickshop.Menu.InventoriesBuilder;
 import fr.quentin.searchquickshop.Menu.InventoryBuilderProviderInterface;
 import fr.quentin.searchquickshop.Menu.utils.ItemStackUtils;
-import fr.quentin.searchquickshop.Menu.utils.LocationUtils;
 import fr.quentin.searchquickshop.SearchQuickShop;
 import fr.quentin.searchquickshop.Shop.ShopFilters;
 import org.bukkit.Bukkit;
