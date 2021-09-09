@@ -56,7 +56,7 @@ public class ShopsInventory extends AbstractPreviousInventory implements Invento
             im.setLore(lore);
             item.setItemMeta(im);
 
-            items[i] =  ClickableItem.of(item, e -> LocationUtils.teleportToShop((Player) e.getWhoClicked(), shop.getLocation()));
+            items[i] =  ClickableItem.of(item, e -> e.getWhoClicked().teleport(shop.getLocation()));
 
             i++;
         }
