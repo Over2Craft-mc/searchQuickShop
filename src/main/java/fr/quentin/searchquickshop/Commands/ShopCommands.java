@@ -34,7 +34,7 @@ public class ShopCommands extends BaseCommand {
 
         OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(args[0]);
 
-        if (offlinePlayer.hasPlayedBefore()) {
+        if (!offlinePlayer.hasPlayedBefore()) {
             player.sendMessage(SearchQuickShop.getPluginConfig().MESSAGE_PLAYER_NOT_EXITS);
             return;
         }

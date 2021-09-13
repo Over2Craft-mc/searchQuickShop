@@ -3,6 +3,7 @@ package fr.quentin.searchquickshop.Commands;
 import co.aikar.commands.BukkitCommandManager;
 import fr.quentin.searchquickshop.ItemTranslation.FrenchTranslation;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 
 import java.util.ArrayList;
@@ -25,8 +26,9 @@ public class AutoCompletion {
 
     public static void item(BukkitCommandManager bukkitCommandManager) {
         bukkitCommandManager.getCommandCompletions().registerCompletion("items", c -> {
-            List<String> suggest = new ArrayList<>(FrenchTranslation.getTranslation().keySet());
+            List<String> suggest = new ArrayList<>();
 
+            suggest.addAll(Arrays.stream(Material.values()).map(Enum::toString).collect(Collectors.toList()));
             suggest.addAll(FrenchTranslation.getTranslation().values());
 
             suggest = suggest.stream().
