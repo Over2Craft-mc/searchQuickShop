@@ -77,7 +77,7 @@ public class ShopsInventory extends AbstractPreviousInventory implements Invento
         contents.set(5, 3, ClickableItem.of(ItemStackUtils.createItem(Material.ARROW, "Page précédente"),
                 e -> InventoriesBuilder.getItemInventory(filters).open(player, pagination.previous().getPage())));
 
-        contents.set(5, 4, ClickableItem.of(ItemStackUtils.createItem(Material.PAPER, "Voir les catégorie"),
+        contents.set(5, 4, ClickableItem.of(ItemStackUtils.createItem(Material.PAPER, "Voir les catégories"),
                 e -> InventoriesBuilder.getCategoryInventory(config, this).open(player)));
 
         contents.set(5, 5, ClickableItem.of(ItemStackUtils.createItem(Material.ARROW, "Page suivante"),

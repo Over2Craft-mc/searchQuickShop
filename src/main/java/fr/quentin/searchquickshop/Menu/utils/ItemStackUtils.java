@@ -21,7 +21,7 @@ public class ItemStackUtils {
         final ItemStack item = new ItemStack(material, 1);
         final ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName("§b§l" + name);
+        meta.setDisplayName("§f" + name);
 
         ArrayList<String> loreA = new ArrayList<>();
 
