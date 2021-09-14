@@ -13,11 +13,11 @@ import org.bukkit.entity.Player;
 public class ShopCommands extends BaseCommand {
 
     @Default
-    @Description("Voir tout les shops")
+    @Description("Voir les catégories")
     @Syntax("/shop-search")
     @CommandPermission("searchquickshop.command.default")
     public static void listAll(Player player) {
-        //InventoriesBuilder.getItemInventory(ShopFilters.allItems()).open(player);
+        InventoriesBuilder.getCategoryInventory(SearchQuickShop.getPluginConfig()).open(player);
     }
 
     @Subcommand("joueur")
