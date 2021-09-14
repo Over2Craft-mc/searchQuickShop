@@ -9,7 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
-@CommandAlias("shop-search")
+@CommandAlias("shop-search|slist")
 public class ShopCommands extends BaseCommand {
 
     @Default
