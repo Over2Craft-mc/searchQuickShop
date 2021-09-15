@@ -10,6 +10,7 @@ import org.maxgamer.quickshop.shop.Shop;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class ShopFilters {
 
@@ -20,7 +21,12 @@ public class ShopFilters {
     }
 
     public static ShopFilters allItems() {
-        return new ShopFilters(QuickShopAPI.getShopAPI().getAllShops());
+        return new ShopFilters(
+                QuickShopAPI.getShopAPI().getAllShops()
+                        .stream()
+                        .filter(shop -> shop.getRemainingStock() > 0)
+                        .collect(Collectors.toList())
+        );
     }
 
     public ShopFilters filterByPlayer(UUID uuid) {
