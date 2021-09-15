@@ -3,7 +3,7 @@ package fr.quentin.searchquickshop.Menu;
 import fr.minuskube.inv.SmartInventory;
 import fr.minuskube.inv.content.InventoryProvider;
 import fr.quentin.searchquickshop.Configuration.Config;
-import fr.quentin.searchquickshop.Menu.Inventories.CategoriesInventoryAbstract;
+import fr.quentin.searchquickshop.Menu.Inventories.CategoriesInventory;
 import fr.quentin.searchquickshop.Menu.Inventories.ShopsInventory;
 import fr.quentin.searchquickshop.Shop.ShopFilters;
 
@@ -19,7 +19,7 @@ public class InventoriesBuilder {
     }
 
     public static SmartInventory getCategoryInventory(Config config, InventoryProvider previousInventory) {
-        InventoryBuilderProviderInterface inventoryProvider = new CategoriesInventoryAbstract(config, previousInventory);
+        InventoryBuilderProviderInterface inventoryProvider = new CategoriesInventory(config, previousInventory);
         return inventoryProvider.getBuilder((InventoryProvider) inventoryProvider);
     }
 

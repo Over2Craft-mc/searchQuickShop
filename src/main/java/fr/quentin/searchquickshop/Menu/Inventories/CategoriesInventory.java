@@ -12,16 +12,16 @@ import fr.quentin.searchquickshop.Shop.ShopFilters;
 import org.bukkit.entity.Player;
 
 
-public class CategoriesInventoryAbstract extends AbstractPreviousInventory implements InventoryProvider, InventoryBuilderProviderInterface {
+public class CategoriesInventory extends AbstractPreviousInventory implements InventoryProvider, InventoryBuilderProviderInterface {
 
     private final Config config;
 
-    public CategoriesInventoryAbstract(Config config) {
+    public CategoriesInventory(Config config) {
         super(null);
         this.config = config;
     }
 
-    public CategoriesInventoryAbstract(Config config, InventoryProvider previousInventory) {
+    public CategoriesInventory(Config config, InventoryProvider previousInventory) {
         super(previousInventory);
         this.config = config;
     }
